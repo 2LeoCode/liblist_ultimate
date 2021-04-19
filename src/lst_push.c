@@ -31,7 +31,7 @@ static t_list	*lst_new_element(void *data, t_size size)
 	return (new_element);
 }
 
-int		lst_push_front(t_list *sentinel, void *data, t_size size)
+int	lst_push_front(t_list *sentinel, void *data, t_size size)
 {
 	t_list	*new_element;
 
@@ -47,7 +47,7 @@ int		lst_push_front(t_list *sentinel, void *data, t_size size)
 	return (0);
 }
 
-int		lst_push_back(t_list *sentinel, void *data, t_size size)
+int	lst_push_back(t_list *sentinel, void *data, t_size size)
 {
 	t_list	*new_element;
 

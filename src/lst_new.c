@@ -26,7 +26,7 @@ t_list	*lst_new(void)
 	return (new_list);
 }
 
-int		lst_init(t_list **empty_data)
+int	lst_init(t_list **empty_data)
 {
 	*empty_data = lst_new();
 	return (!*empty_data * -1);
