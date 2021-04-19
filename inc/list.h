@@ -41,8 +41,8 @@ int		lst_init(t_list **empty_data);
 
 int		lst_push_front(t_list *sentinel, void *data, t_size size);
 int		lst_push_back(t_list *sentinel, void *data, t_size size);
-int		lst_pop_front(t_list *sentinel);
-int		lst_pop_back(t_list *sentinel);
+void	lst_pop_front(t_list *sentinel);
+void	lst_pop_back(t_list *sentinel);
 void	lst_pop(t_list *element);
 
 t_list	*lst_at(const t_list *sentinel, int index);
