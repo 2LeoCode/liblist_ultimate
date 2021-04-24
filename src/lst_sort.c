@@ -18,13 +18,13 @@ static void	update_smallest_if_head_lower(t_list **smallest, t_list *head,
 	t_size	cmp_size;
 	int		cmp_ret;
 
-	if ((t_size)head->data.second > (t_size)(*smallest)->data.second)
-		cmp_size = (t_size)(*smallest)->data.second;
+	if ((t_size)head->size > (*smallest)->size)
+		cmp_size = (*smallest)->size;
 	else
-		cmp_size = (t_size)head->data.second;
-	cmp_ret = (*cmp_fun)(head->data.first, (*smallest)->data.first,
+		cmp_size = head->size;
+	cmp_ret = (*cmp_fun)(head->data, (*smallest)->data,
 			cmp_size);
-	if (cmp_ret <= 0)
+	if ((cmp_ret < 0) || (!cmp_ret && (head->size < (*smallest)->size)))
 		*smallest = head;
 }
 
@@ -44,7 +44,7 @@ void	lst_sort(t_list *sentinel, t_cmpf cmp_fun)
 			update_smallest_if_head_lower(&smallest, head, cmp_fun);
 			head = head->next;
 		}
-		ft_swap(&smallest->data, &iterator->data, sizeof(t_pair));
+		ft_swap(&smallest->data, &iterator->data, sizeof(char *));
 		iterator = iterator->next;
 	}
 }

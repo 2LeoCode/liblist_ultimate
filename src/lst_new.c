@@ -21,8 +21,7 @@ t_list	*lst_new(void)
 		return (NULL);
 	new_list->next = new_list;
 	new_list->prev = new_list;
-	new_list->data.first = NULL;
-	new_list->data.second = NULL;
+	new_list->size = 0L;
 	return (new_list);
 }
 

@@ -16,18 +16,11 @@ static t_list	*lst_new_element(void *data, t_size size)
 {
 	t_list	*new_element;
 
-	new_element = malloc(sizeof(t_list));
+	new_element = malloc(sizeof(t_list) + size);
 	if (!new_element)
 		return (NULL);
-	new_element->data.first = malloc(size);
-	if (!new_element->data.first)
-	{
-		free(new_element);
-		new_element = NULL;
-		return (NULL);
-	}
-	ft_memcpy(new_element->data.first, data, size);
-	new_element->data.second = (void *)size;
+	new_element->size = size;
+	ft_memcpy(new_element->data, data, size);
 	return (new_element);
 }
 
