@@ -12,7 +12,7 @@
 
 #include <list.h>
 
-static t_list	*lst_new_element(void *data, t_size size)
+static t_list	*lst_new_element(void *data, size_t size)
 {
 	t_list	*new_element;
 
@@ -24,13 +24,15 @@ static t_list	*lst_new_element(void *data, t_size size)
 	return (new_element);
 }
 
-int	lst_push_front(t_list *sentinel, void *data, t_size size)
+int	lst_push_front(t_list *sentinel, void *data, size_t size)
 {
 	t_list	*new_element;
 
 	new_element = lst_new_element(data, size);
 	if (!new_element)
 		return (-1);
+	*sentinel->list_size++;
+	new_element->list_size = sentinel->list_size;
 	new_element->prev = sentinel;
 	new_element->next = sentinel->next->next;
 	if (new_element->next == sentinel)
@@ -40,13 +42,15 @@ int	lst_push_front(t_list *sentinel, void *data, t_size size)
 	return (0);
 }
 
-int	lst_push_back(t_list *sentinel, void *data, t_size size)
+int	lst_push_back(t_list *sentinel, void *data, size_t size)
 {
 	t_list	*new_element;
 
 	new_element = lst_new_element(data, size);
 	if (!new_element)
 		return (-1);
+	*sentinel->list_size++;
+	new_element->list_size = sentinel->list_size;
 	new_element->next = sentinel;
 	new_element->prev = sentinel->prev->prev;
 	if (new_element->prev == sentinel)

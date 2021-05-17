@@ -21,8 +21,6 @@ void	lst_clear(t_list *sentinel)
 	while (iterator != sentinel)
 	{
 		head = iterator->next;
-		free(iterator->data.first);
-		iterator->data.second = NULL;
 		iterator->next = NULL;
 		iterator->prev = NULL;
 		free(iterator);
@@ -30,14 +28,12 @@ void	lst_clear(t_list *sentinel)
 	}
 	sentinel->next = sentinel;
 	sentinel->prev = sentinel;
+	*sentinel->list_size = 0;
 }
 
 void	lst_destroy(t_list *sentinel)
 {
 	lst_clear(sentinel);
-	free(sentinel->data.first);
-	sentinel->data.second = NULL;
-	sentinel->next = NULL;
-	sentinel->prev = NULL;
+	free(sentinel->list_size);
 	free(sentinel);
 }

@@ -12,15 +12,13 @@
 
 #include <list.h>
 
-t_list	*lst_at(const t_list *sentinel, int index)
+t_list	*lst_at(const t_list *sentinel, size_t index)
 {
 	const t_list	*tmp = sentinel;
 
+	if (index > *sentinel->list_size)
+		return (NULL);
 	while (index--)
-	{
 		tmp = tmp->next;
-		if (tmp == sentinel)
-			return (NULL);
-	}
 	return ((t_list *)tmp);
 }

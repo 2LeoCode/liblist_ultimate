@@ -15,10 +15,10 @@
 static void	update_smallest_if_head_lower(t_list **smallest, t_list *head,
 				t_cmpf cmp_fun)
 {
-	t_size	cmp_size;
+	size_t	cmp_size;
 	int		cmp_ret;
 
-	if ((t_size)head->size > (*smallest)->size)
+	if ((size_t)head->size > (*smallest)->size)
 		cmp_size = (*smallest)->size;
 	else
 		cmp_size = head->size;

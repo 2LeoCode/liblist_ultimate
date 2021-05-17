@@ -12,16 +12,7 @@
 
 #include <list.h>
 
-t_size	lst_size(const t_list *sentinel)
+size_t	lst_size(const t_list *sentinel)
 {
-	const t_list	*tmp = sentinel->next;
-	t_size			size;
-
-	size = 0;
-	while (tmp != sentinel)
-	{
-		size++;
-		tmp = tmp->next;
-	}
-	return (size);
+	return (*sentinel->list_size);
 }

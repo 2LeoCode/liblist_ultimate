@@ -14,11 +14,9 @@
 
 void	lst_pop(t_list *element)
 {
+	*element->list_size--;
 	element->prev->next = element->next;
 	element->next->prev = element->prev;
-	free(element->data.first);
-	element->data.first = NULL;
-	element->data.second = NULL;
 	element->next = NULL;
 	element->prev = NULL;
 	free(element);

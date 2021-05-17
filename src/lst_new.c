@@ -14,15 +14,17 @@
 
 t_list	*lst_new(void)
 {
-	t_list	*new_list;
+	t_list	*sentinel;
 
-	new_list = malloc(sizeof(t_list));
-	if (!new_list)
+	sentinel = malloc(sizeof(t_list));
+	if (!sentinel)
 		return (NULL);
-	new_list->next = new_list;
-	new_list->prev = new_list;
-	new_list->size = 0L;
-	return (new_list);
+	sentinel->next = sentinel;
+	sentinel->prev = sentinel;
+	sentinel->size = 0UL;
+	sentinel->list_size = (size_t *)malloc(sizeof(size_t));
+	*sentinel->list_size = 0UL;
+	return (sentinel);
 }
 
 int	lst_init(t_list **empty_data)
