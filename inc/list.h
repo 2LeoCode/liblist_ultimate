@@ -28,7 +28,7 @@ typedef struct s_list
 	struct s_list	*prev;
 	struct s_list	*next;
 	size_t			size;
-	char			data[0];
+	char			data[];
 }	t_list;
 
 t_list	*lst_new(void);

@@ -31,7 +31,7 @@ int	lst_push_front(t_list *sentinel, void *data, size_t size)
 	new_element = lst_new_element(data, size);
 	if (!new_element)
 		return (-1);
-	*sentinel->list_size++;
+	(*sentinel->list_size)++;
 	new_element->list_size = sentinel->list_size;
 	new_element->prev = sentinel;
 	new_element->next = sentinel->next->next;
@@ -49,7 +49,7 @@ int	lst_push_back(t_list *sentinel, void *data, size_t size)
 	new_element = lst_new_element(data, size);
 	if (!new_element)
 		return (-1);
-	*sentinel->list_size++;
+	(*sentinel->list_size)++;
 	new_element->list_size = sentinel->list_size;
 	new_element->next = sentinel;
 	new_element->prev = sentinel->prev->prev;
